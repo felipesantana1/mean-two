@@ -184,6 +184,7 @@ var Appointment = (function () {
         if (patient === void 0) { patient = ""; }
         if (complain === void 0) { complain = ""; }
         if (time === void 0) { time = ""; }
+        if (date === void 0) { date = new Date(); }
         this.patient = patient;
         this.complain = complain;
         this.time = time;
