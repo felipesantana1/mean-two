@@ -1,0 +1,27 @@
+<h1>Welcome {{user}}</h1>
+
+<button (click)="logOut()">LogOut</button>
+<button (click)="add()">Add Appointment</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Patient</th>
+            <th>Complain</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let app of appointments">
+            <td>{{ app.date | date: 'mediumDate' }}</td>
+            <td>{{ app.time }}</td>
+            <td>{{ app.patient }}</td>
+            <td>{{ app.complain }}
+                <span *ngIf="app.patient === user"><button (click)="delete(app._id)">Cancel</button></span>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  
+  <router-outlet></router-outlet>

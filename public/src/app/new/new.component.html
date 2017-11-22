@@ -1,0 +1,19 @@
+<button (click)="home()">Home</button>
+<button (click)="logOut()">LogOut</button>
+
+<h1>New Question</h1>
+  <form (submit)="onSubmit()" #formData="ngForm">
+    <label for="date">Date:</label>
+    <input type="date" name="date" required [(ngModel)]="appointment.date" #date="ngModel">
+    <label for="time">Time:</label>
+    <input type="time" name="time" required [(ngModel)]="appointment.time" #time="ngModel">
+    <label for="complain">Complain:</label>
+    <input type="text" name="complain" required [(ngModel)]="appointment.complain" minlength="10" #complain="ngModel">
+    <a [routerLink]="['/dash']"><button>Cancel</button></a>
+    <input type="submit" [disabled]="formData.invalid">
+    <span *ngIf="date.errors?.required">Date must be after today!</span>    
+    <span *ngIf="complain.errors?.required">Complain is required!</span>
+    <span *ngIf="complain.errors?.minlength">Complain must be at leats 10 characters!</span> 
+    
+    
+  </form>
